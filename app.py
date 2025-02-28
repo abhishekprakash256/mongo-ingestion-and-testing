@@ -143,7 +143,9 @@ def article(article):
 
     return jsonify(article_data_test)
 
-
+@app.route("/search/<term>")
+def search(term):
+    return jsonify(paignation_data)
 
 
 if __name__ == '__main__':
