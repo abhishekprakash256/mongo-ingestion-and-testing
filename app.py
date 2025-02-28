@@ -135,17 +135,19 @@ def hello_world():
 
 @app.route("/section/<section>")
 def section(section):
-    return jsonify(paignation_data)
+	print(section)
+	return jsonify(paignation_data)
 
 
 @app.route("/article/<article>")
 def article(article):
-
-    return jsonify(article_data_test)
+	print(article)
+	return jsonify(article_data_test)
 
 @app.route("/search/<term>")
 def search(term):
-    return jsonify(paignation_data)
+	print(term)
+	return jsonify(paignation_data)
 
 
 if __name__ == '__main__':
