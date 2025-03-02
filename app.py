@@ -146,8 +146,14 @@ def article(article):
 
 @app.route("/search/<term>")
 def search(term):
-	print(term)
-	return jsonify(paignation_data)
+	
+    print(type(term))
+
+    if term == "empty":
+        print("No results found")
+        return jsonify([]), 404  # 
+        
+    return jsonify(paignation_data)
 
 
 if __name__ == '__main__':
