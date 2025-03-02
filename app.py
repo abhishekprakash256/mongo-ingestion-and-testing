@@ -23,7 +23,7 @@ paignation_data = [
       "card_title": "Card Title 3",
       "card_para": "System design is a multidisciplinary field that encompasses various aspects of designing distributed systems.",
       "img_src": "../images/image_1.png",
-      "card_url": "https://example.com/card3"
+      "card_url": "https://example.com/card3"  
     },
     {
       "card_title": "Card Title 1",
@@ -144,6 +144,7 @@ def article(article):
 	print(article)
 	return jsonify(article_data_test)
 
+
 @app.route("/search/<term>")
 def search(term):
 	
@@ -154,6 +155,7 @@ def search(term):
         return jsonify([]), 404  # 
         
     return jsonify(paignation_data)
+
 
 
 if __name__ == '__main__':
