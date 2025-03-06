@@ -127,13 +127,13 @@ article_data_test  = {
 app = Flask(__name__)
 
 
-@app.route("/mongo/section/<category>/article/<name>")
+@app.route("/mongo/section/<category>/article/<name>" , methods=["GET"])
 def getArticleData(category,name):
 
 	print(category, name)
 	return "<h1>Get Mogo Article</h1>"
 
-@app.route("/mongo/section/<category>")
+@app.route("/mongo/section/<category>" , methods=["GET"])
 def getSectionData(category):
 	
 	print(category)
@@ -141,7 +141,7 @@ def getSectionData(category):
 	return "<h1>Get Mongo section data</h1>"
 
 
-@app.route("/mongo/section/explore")
+@app.route("/mongo/section/explore" , methods=["GET"])
 def getExploreData():
 	
 	print("explore")
@@ -150,7 +150,7 @@ def getExploreData():
 
 
 
-@app.route("/mongo/search/<data>")
+@app.route("/mongo/search/<data>" , methods=["GET"])
 def getSearchData(data):
 	
 	print(data)
