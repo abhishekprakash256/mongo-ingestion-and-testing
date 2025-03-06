@@ -1,3 +1,7 @@
+"""
+The data insertion file for testing purpose
+"""
+
 import mongo_helper_kit
 from test_data import article_test_data
 
