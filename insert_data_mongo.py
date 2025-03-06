@@ -22,10 +22,10 @@ db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 
 
 #get the data , change to return the data  
-db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+#db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
 
 #get the article data 
-res = db_helper.show_article_data(DB_NAME, COLLECTION_NAME,"test1")
+res = db_helper.show_article_data(DB_NAME, COLLECTION_NAME,article_name="test1")
 
 print(res)
