@@ -131,7 +131,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     return "<p>Hello, World!</p>"
-
+  
 
 @app.route("/section/<section>")
 def section(section):
@@ -154,7 +154,7 @@ def search(term):
         print("No results found")
         return jsonify([]), 404  # 
         
-    return jsonify(paignation_data)
+    return jsonify(paignation_data)   
 
 
 
