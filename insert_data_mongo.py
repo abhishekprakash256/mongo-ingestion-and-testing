@@ -40,6 +40,6 @@ print(res)
 
 print("--------------card-----data-----------")
 
-card_data = db_helper.get_card_data(DB_NAME, COLLECTION_NAME, "tech", 3)
+#card_data = db_helper.get_card_data(DB_NAME, COLLECTION_NAME, "tech", 3)
 
-print(card_data)
+#print(card_data)
