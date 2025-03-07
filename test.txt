@@ -1,0 +1,4 @@
+image_src = article_data.image_src[0]
+card_title = article_name
+card_para = article_data.article_para[1]
+card_url = article_link

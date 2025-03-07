@@ -4,7 +4,7 @@ The data insertion file for testing purpose
 
 import mongo_helper_kit
 from test_data import article_test_data
-
+import inspect
 
 #constansts
 DB_NAME = "test-main-database"
@@ -15,7 +15,7 @@ MONGO_HOST_NAME = "localhost"
 db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 
 #make the database 
-#db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
+db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
 
 #insert the data
 #db_helper.insert_data(DB_NAME, COLLECTION_NAME,article_test_data )
@@ -24,8 +24,22 @@ db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 #get the data , change to return the data  
 #db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
+#db_helper.delete_db(DB_NAME)
 
 #get the article data 
-res = db_helper.show_article_data(DB_NAME, COLLECTION_NAME, {'article_name':"test1"})
+#res = db_helper.show_article_data(DB_NAME, COLLECTION_NAME, {'article_name':"test1"})
+
+#db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+
+
+
+res = db_helper.get_article_data(DB_NAME, COLLECTION_NAME, "tech", "test2")
 
 print(res)
+
+
+print("--------------card-----data-----------")
+
+card_data = db_helper.get_card_data(DB_NAME, COLLECTION_NAME, "tech", 3)
+
+print(card_data)
