@@ -12,6 +12,7 @@ from bson import json_util
 DB_NAME = "test-main-database"
 COLLECTION_NAME = "test-article-collections"
 MONGO_HOST_NAME = "localhost"
+SECTION_NAME = ["tech", "project", "life"]
 
 
 
@@ -26,16 +27,15 @@ app = Flask(__name__)
 
 
 
-@app.route("/mongo/section/<category>/article/<article_name>" , methods=["GET"])  #error for the string id 
+@app.route("/mongo/section/<category>/article/<article_name>" , methods=["GET"])  
 def getArticleData(category,article_name):
 	"""
 	The function to get the article data from particular category
 	"""
 
 	data = db_helper.get_article_data(DB_NAME, COLLECTION_NAME, category, article_name)
-	#print(data)
 
-	article_data = json.loads(json_util.dumps(data))
+	article_data = json.loads(json_util.dumps(data))  #the json utils makes the object id parse in json format from mongo
 
 	return jsonify(article_data)
 	
@@ -74,7 +74,11 @@ def getExploreData():
 	if limit is None or limit < 3:
 		limit = 15
 	
-	return "Get the explore card data from the Mongo with mixed topic"
+	data_section_one = db_helper.get_card_data(DB_NAME, COLLECTION_NAME,SECTION_NAME[0], limit = 5)
+	data_section_two = db_helper.get_card_data(DB_NAME, COLLECTION_NAME, SECTION_NAME[1], limit = 5)
+	data_section_three = db_helper.get_card_data(DB_NAME, COLLECTION_NAME,SECTION_NAME[2], limit = 5)
+	
+	return jsonify(data_section_one + data_section_two + data_section_three)
 
 
 
