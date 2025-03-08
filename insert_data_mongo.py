@@ -32,11 +32,71 @@ db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 #db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
 
+#res = db_helper.get_article_data(DB_NAME, COLLECTION_NAME, "tech", "test2")
 
-res = db_helper.get_article_data(DB_NAME, COLLECTION_NAME, "tech", "test2")
+#print(res)
 
-print(res)
+#make the index in the data base 
 
+
+"""
+client = db_helper.mongo_client
+
+db = client[DB_NAME]
+collection = db[COLLECTION_NAME]
+
+db.collection.create_index([
+    ("article_name", "text"),
+    ("section_name", "text"),
+    ("article_para", "text"),
+    ("article_data.title", "text"),
+    ("article_data.article_para", "text"),
+    ("article_data.markdown_data", "text")
+])
+
+
+
+print(client)
+
+
+"""
+
+
+def search_articles(keyword, db_name= DB_NAME, collection_name= COLLECTION_NAME):
+    """
+    Search articles in MongoDB using a regex-based approach.
+    
+    :param keyword: The keyword to search for (case-insensitive).
+    :param db_name: Name of the database.
+    :param collection_name: Name of the collection.
+    :return: List of matching documents.
+    """
+
+    # Connect to MongoDB (Modify connection string if needed)
+    client = db_helper.mongo_client
+    db = client[db_name]
+    collection = db[collection_name]
+
+    # Define the search filter using `$or` and `$regex`
+    search_filter = {
+        "$or": [
+            {"article_name": {"$regex": keyword, "$options": "i"}},
+            {"section_name": {"$regex": keyword, "$options": "i"}},
+            {"article_para": {"$regex": keyword, "$options": "i"}},
+            {"article_data.title": {"$regex": keyword, "$options": "i"}},
+            {"article_data.article_para": {"$regex": keyword, "$options": "i"}},
+            {"article_data.markdown_data": {"$regex": keyword, "$options": "i"}}
+        ]
+    }
+
+    # Execute the query and return results (sorted by `created_at` field)
+    results = list(collection.find(search_filter).sort("created_at", -1))
+
+    return results
+
+keyword = "test2"
+
+print(search_articles(keyword))
 
 print("--------------card-----data-----------")
 
