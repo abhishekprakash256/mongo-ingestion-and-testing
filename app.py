@@ -82,15 +82,15 @@ def getExploreData():
 
 
 
-@app.route("/mongo/search/<data>" , methods=["GET"])
-def getSearchData(data):
+@app.route("/mongo/search/<keyword>" , methods=["GET"])
+def getSearchData(keyword):
 	"""
 	The function to get the search data
 	"""
 	
-	print(data)
+	data = db_helper.search_database(DB_NAME, COLLECTION_NAME, keyword)
 
-	return "<h1>Get Mongo search data</h1>"
+	return jsonify(data)
 
 
 

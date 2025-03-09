@@ -1,5 +1,5 @@
 """
-The data insertion file for testing purpose
+The data insertion file for testing purpose will be deleted after the features are added
 """
 
 import mongo_helper_kit
@@ -39,27 +39,24 @@ db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 #make the index in the data base 
 
 
-"""
-client = db_helper.mongo_client
-
-db = client[DB_NAME]
-collection = db[COLLECTION_NAME]
-
-db.collection.create_index([
-    ("article_name", "text"),
-    ("section_name", "text"),
-    ("article_para", "text"),
-    ("article_data.title", "text"),
-    ("article_data.article_para", "text"),
-    ("article_data.markdown_data", "text")
-])
 
 
+def make_index():
+    client = db_helper.mongo_client
 
-print(client)
+    db = client[DB_NAME]
+    collection = db[COLLECTION_NAME]
+
+    db.collection.create_index([
+        ("article_name", "text"),
+        ("section_name", "text"),
+        ("article_para", "text"),
+        ("article_data.title", "text"),
+        ("article_data.article_para", "text"),
+        ("article_data.markdown_data", "text")
+    ])
 
 
-"""
 
 
 def search_articles(keyword, db_name= DB_NAME, collection_name= COLLECTION_NAME):
@@ -90,13 +87,26 @@ def search_articles(keyword, db_name= DB_NAME, collection_name= COLLECTION_NAME)
     }
 
     # Execute the query and return results (sorted by `created_at` field)
-    results = list(collection.find(search_filter).sort("created_at", -1))
+    searched_data = list(collection.find(search_filter).sort("created_at", -1))
+
+    results = []
+
+    for article in searched_data:
+        # Extract the necessary fields based on the new design
+        card = {
+            "card_title": article.get("article_name", ""),
+            "card_para": article.get("article_para", ""),
+            "img_src": article.get("article_image", ""),
+            "card_link": article.get("article_link", "")
+        }
+        results.append(card)
 
     return results
 
+
 keyword = "test2"
 
-print(search_articles(keyword))
+#print(search_articles(keyword))
 
 print("--------------card-----data-----------")
 
