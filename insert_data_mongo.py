@@ -15,10 +15,10 @@ MONGO_HOST_NAME = "localhost"
 db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 
 #make the database 
-db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
+#db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
 
 #insert the data
-db_helper.insert_data(DB_NAME, COLLECTION_NAME,article_test_data )
+#db_helper.insert_data(DB_NAME, COLLECTION_NAME,article_test_data )
 
 
 #get the data , change to return the data  
@@ -105,6 +105,8 @@ def search_articles(keyword, db_name= DB_NAME, collection_name= COLLECTION_NAME)
 
 
 keyword = "test2"
+
+make_index()
 
 #print(search_articles(keyword))
 
