@@ -497,7 +497,7 @@ article_test_data  = [
 			"more_link": "/project"
 
          
-}
+}   
 , {
 			"article_name": "Test 11",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
