@@ -18,20 +18,20 @@ db_helper = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 #db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
 
 #insert the data
-#db_helper.insert_data(DB_NAME, COLLECTION_NAME,article_test_data )
+db_helper.insert_data(DB_NAME, COLLECTION_NAME,article_test_data )
 
 #delete all the data 
 #db_helper.delete_db(DB_NAME)
 
 
 #get the data , change to return the data  
-db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+#db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
 
 #get the article data 
 #res = db_helper.show_article_data(DB_NAME, COLLECTION_NAME, {'article_name':"test1"})
 
-#db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
 
 #res = db_helper.get_article_data(DB_NAME, COLLECTION_NAME, "tech", "test2")

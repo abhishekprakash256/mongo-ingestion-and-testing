@@ -84,6 +84,7 @@ paignation_data = [
 article_test_data  = [
     {
 			"article_name": "Test 1",
+            "slug" : "test-1",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"project", 
@@ -125,6 +126,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 2",
+            "slug" : "test-2",
             "article_image" :"section/project/chat-app/chat-app-icon.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"tech", 
@@ -132,13 +134,13 @@ article_test_data  = [
 
 			"article_data": [
 					
-					{"title": "Patching Unpatching Open Source tool", "image_src": "../images/federated-learning-flow.png", "article_para": "", "markdown_data": ""},
+					{"title": "Patching Unpatching Open Source tool", "image_src": "section/project/federated-learning/federated-learning-flow.png", "article_para": "", "markdown_data": ""},
 					{"title": "Project Description", "image_src": "", "article_para": "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.", "markdown_data": ""},
 					{"title": "", "image_src": "", "article_para": "", "markdown_data": "### Patching Tool"},
 					{"title": "", "image_src": "", "article_para": "Patching is the initial step in the image processing pipeline, responsible for dividing the input image into smaller, manageable sections called patches. These patches are typically square-shaped and can vary in size based on user-defined parameters such as patch size and padding.", "markdown_data": ""},
 					{"title": "", "image_src": "", "article_para": "", "markdown_data": "**Key Features:**\n1. **Segmentation:** The patching tool effectively segments the input image, breaking it down into discrete patches. This segmentation enables localized analysis and processing, facilitating tasks such as feature extraction and object detection.\n2. **Padding Options:** To ensure consistency and accuracy during patch extraction, the patching tool offers padding options such as reflective padding. This padding technique extends the borders of the image by replicating pixel values, thereby maintaining continuity across patch boundaries.\n3. **Support for Multiple Image Types:** Whether dealing with grayscale (single-channel) or color (three-channel) images, the patching tool accommodates diverse image types. This flexibility extends its utility across various applications, from medical imaging to satellite imagery analysis.\n4. **Parameter Customization:** Users have the flexibility to customize parameters such as patch size and padding width to suit specific requirements. Fine-tuning these parameters enables optimization for different image characteristics and processing objectives."},
 					{"title": "", "image_src": "", "article_para": "", "markdown_data": "### Unpatching Tool"},
-					{"title": "", "image_src": "../images/image_1.png", "article_para": "", "markdown_data": ""},
+					{"title": "", "image_src": "section/project/chat-app/chat-app-icon.png", "article_para": "", "markdown_data": ""},
 					{"title": "", "image_src": "", "article_para": "Following patching, the Unpatching tool plays a crucial role in reconstructing the original or modified image from the segmented patches. It operates in conjunction with Patching, leveraging the extracted patch information to generate a cohesive image representation.", "markdown_data": ""},
 					{"title": "", "image_src": "", "article_para": "", "markdown_data": "**Key Features:** \n1. **Reconstruction:** The primary function of the Unpatching tool is to reconstruct the original image from the segmented patches. By combining these patches in a systematic manner, it restores the spatial integrity and continuity of the image.\n2. **Scalability:** The Unpatching tool offers scalability, allowing for both image enlargement and reduction. This capability is particularly useful in applications requiring image upscaling or downscaling while preserving visual fidelity.\n3. **Parameter Consistency:** To ensure consistency with the patching process, the Unpatching tool maintains compatibility with parameters such as patch size and padding width. This consistency facilitates seamless integration into the overall image processing workflow.\n4. **Enhanced Flexibility:** Beyond basic reconstruction, the Unpatching tool supports advanced functionalities such as blown upscale. This feature enables the user to specify the degree of enlargement or scaling applied to the reconstructed image, enhancing flexibility and control."},
 					{"title": "", "image_src": "", "article_para": "", "markdown_data": "### Integration and Workflow"},
@@ -168,6 +170,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 3",
+            "slug" : "test-3",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"life", 
@@ -210,6 +213,7 @@ article_test_data  = [
 
     {
 			"article_name": "Test 4",
+            "slug" : "test-4",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"project", 
@@ -251,6 +255,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 5",
+            "slug" : "test-5",
            "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"tech", 
@@ -294,6 +299,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 6",
+            "slug" : "test-6",
            "article_image" :"section/project/chat-app/chat-app-icon.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"life", 
@@ -334,7 +340,8 @@ article_test_data  = [
 }
 ,
     {
-			"article_name": "Test 7",
+			"article_name": "Patching Unpatching",
+            "slug" : "patching-unpatching",
            "article_image" :"section/project/chat-app/chat-app-icon.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"project", 
@@ -375,6 +382,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 8",
+            "slug" : "test-8",
            "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"tech", 
@@ -418,6 +426,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 9",
+            "slug" : "test-9",
            "article_image" :"section/project/chat-app/chat-app-icon.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"life", 
@@ -460,6 +469,7 @@ article_test_data  = [
 {
             
             "article_name": "Test 10",
+            "slug" : "test-10",
            "article_image" :"section/project/chat-app/chat-app-icon.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"life", 
@@ -500,6 +510,7 @@ article_test_data  = [
 }   
 , {
 			"article_name": "Test 11",
+            "slug" : "test-11",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"newsection", 
@@ -540,6 +551,7 @@ article_test_data  = [
 },
  {
 			"article_name": "Special",
+            "slug" : "test-12",
             "article_image" :"section/project/federated-learning/federated-learning-flow.png",
             "article_para" : "Patching and Unpatching are a set of tools that are used for image processing. The patching tool is used to cut small square sections of the input image known as patches. The unpatching tool takes those patches and combines them back together to make the final image.",
 			"section_name":"project", 
