@@ -117,8 +117,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-            "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 
 			"more_link": "/project"
 
@@ -159,8 +159,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -203,8 +203,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -246,8 +246,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 
 			"more_link": "/project"
 
@@ -288,8 +288,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -332,8 +332,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -374,8 +374,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-			  "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
 },
@@ -415,8 +415,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-			  "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -459,8 +459,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
@@ -502,8 +502,8 @@ article_test_data  = [
 				"kaggle_url" : "https://www.kaggle.com/abhishek256",
 				"medium_url" : "",
 		
-			"demo_link":"www.google.com",
-              "article_link" : "www.google.com" , 
+			"demo_link":"/section/project/article/patching-unpatching",
+            "article_link" : "/section/project/article/patching-unpatching" , 
 			"more_link": "/project"
 
          
