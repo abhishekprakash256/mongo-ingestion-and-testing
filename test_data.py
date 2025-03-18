@@ -120,7 +120,7 @@ article_test_data  = [
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
 
-			"more_link": "/project"
+			"more_link": "/section/project"
 
 },
 {
@@ -161,7 +161,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/tech"
 
          
 }
@@ -205,7 +205,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/life"
 
          
 }
@@ -249,7 +249,7 @@ article_test_data  = [
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
 
-			"more_link": "/project"
+			"more_link": "/section/project"
 
 },
 {
@@ -290,7 +290,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/project"
 
          
 }
@@ -334,7 +334,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/life"
 
          
 }
@@ -376,7 +376,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/demo/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/project"
 
 },
 {
@@ -417,7 +417,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/tech"
 
          
 }
@@ -461,7 +461,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/life"
 
          
 }
@@ -504,7 +504,7 @@ article_test_data  = [
 		
 			"demo_link":"/section/project/article/patching-unpatching",
             "article_link" : "/section/project/article/patching-unpatching" , 
-			"more_link": "/project"
+			"more_link": "/section/life"
 
          
 }   
@@ -587,7 +587,7 @@ article_test_data  = [
 			"demo_link":"www.google.com",
             "article_link" : "www.google.com" , 
 
-			"more_link": "/project"
+			"more_link": "/section/project"
 
 }
 
