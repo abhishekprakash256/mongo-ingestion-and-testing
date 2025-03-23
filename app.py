@@ -121,22 +121,28 @@ def getSearchData(keyword):
 	return jsonify(data)
 
 
-@app.route("/pgsql/login/<username>/<password>" , methods=["GET"])
-def getLoginData(username, password):
-	"""
-	The function to get the login data
-	"""
-	
-	user_password = db_helper_pgsql.get_user_password(username)
+@app.route("/pgsql/login", methods=["POST"])
+def get_login_data():
+    """
+    Secure login function using a POST request
+    """
+    data = request.get_json()
+    
+    if not data or "username" not in data or "password" not in data:
+        return jsonify({"message": "Invalid request"}), 400
+    
+    username = data["username"]
+    password = data["password"]
 
-	if user_password is None:
-		return jsonify({"message":"User not found"})
-	
-	if user_password == password:
-		return jsonify({"message":"Login successful"})
-	else:
-		return jsonify({"message":"Login failed"})
+    user_password = db_helper_pgsql.get_user_password(username)
 
+    if user_password is None:
+        return jsonify({"message": "User not found"}), 404
+
+    if user_password == password:
+        return jsonify({"message": "Login successful"}), 200
+    else:
+        return jsonify({"message": "Login failed"}), 401
 
 
 
