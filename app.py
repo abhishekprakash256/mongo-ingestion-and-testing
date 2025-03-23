@@ -9,6 +9,7 @@ from bson import json_util
 
 
 #constansts the database and the collection name will change in the actual implemntations 
+#mongo database infomation
 DB_NAME = "test-main-database"
 COLLECTION_NAME = "test-article-collections"
 MONGO_HOST_NAME = "localhost"
