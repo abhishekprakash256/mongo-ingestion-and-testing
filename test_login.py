@@ -15,6 +15,7 @@ recover_url = "http://localhost:5000/pgsql/recover"
 delete_url = "http://localhost:5000/pgsql/delete"
 
 
+
 data_login = {"username": "abhi2" ,"password" : "1234"}
 data_signup = {"username": "abhi4" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }
 data_update = {"username": "abhi2" ,"old_password" : "Qwerty@1235" , "new_password": "1234" , "confirm_password" : "1234"}
