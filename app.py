@@ -308,7 +308,42 @@ def recover_password():
 
     return jsonify({"status": "success", "message": "Password updated successfully"}), 200
 
+
+@app.route("/pgsql/delete", methods=["DELETE"])
+def delete_user():
+    """
+    Deletes the user's account after verifying the token and password.
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+
+    username = data["username"]
+    password = data["password"]
+    token = data["token"]
+
+    # Verify if the user exists
+    if not db_helper_pgsql.check_user_exists(username):
+        return jsonify({"status": "error", "message": "User not found"}), 404
+
+    #verify if the token matches 
+    stored_token = db_helper_pgsql.get_user_hash(username)
     
+    if not compare_tokens(stored_token , token) :
+        return jsonify({"status": "error", "message": "Invalid Token"}), 400
+    
+    #get the stored password
+    hashed_stored_password = db_helper_pgsql.get_user_password(username)
+
+    if not db_helper_pgsql.verify_password(password, hashed_stored_password) :
+        
+        return jsonify({"status": "error", "message": "Incorrect password"}), 401
+
+    #delete the user
+    db_helper_pgsql.delete_user(username)
+    
+    return jsonify({"status": "success", "message": "User account deleted successfully"}), 200
 
     
 
