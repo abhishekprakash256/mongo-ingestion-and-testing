@@ -5,6 +5,8 @@ from flask import current_app, Flask, Response , render_template, request, jsoni
 import mongo_helper_kit
 from bson import json_util
 import pgsql_helper_kit
+import redis_helper_kit
+import hash_utils
 import jwt
 import hmac
 
@@ -35,8 +37,8 @@ db_helper_pgsql = pgsql_helper_kit.Db_Helper(pgsql_session, pgsql_engine)
 #helper method instance
 db_helper_mongo = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 
-
-
+#make the redis instance 
+db_helper_redis = redis_helper_kit.Helper_fun(hash_name="test_hash", set_name="test_set", host_name="localhost")
 
 
 
@@ -220,8 +222,10 @@ def sign_up():
 
         if password == confirm_password :
 
-            #the hash wll be dynamically fertched from redis
-            userhash = "hjs&99"
+            #added the redis  hash suport
+            hash_utils.generate_unique_hash("test_hash","test_set","localhost",5,10,100)
+
+            userhash = db_helper_redis.pop_set_val()
 
             db_helper_pgsql.create_user(username, password , userhash)
 
