@@ -25,3 +25,15 @@ print(db_helper.check_user_exists(username='abhi'))
 print(db_helper.get_all_users())
 
 
+#verrify the password
+
+hashed_stored_password = db_helper.get_user_password('abhi')
+
+password='Qwerty@1234'
+
+
+if db_helper.verify_password(password, hashed_stored_password) :
+
+    print("Password is correct")
+else:
+    print("Password is incorrect")
