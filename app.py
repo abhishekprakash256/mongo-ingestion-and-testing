@@ -190,6 +190,92 @@ def get_login_data():
         return jsonify({"status": "error", "message": "Invalid username or password."}), 401
 
 
+@app.route("/pgsql/signup", methods=["POST"])
+def sign_up():
+    """
+    The sign up for the user using unique username and password
+    """
+
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    username = data["username"]
+    password = data["password"]
+    confirm_password = data["confirm_password"]
+
+    #check if the username exists
+    if db_helper_pgsql.check_user_exists(username):
+
+        return jsonify({"status": "error", "message": "Username Already exists use a different user name"}), 400
+    
+    else:
+
+        if password == confirm_password :
+
+            #the hash wll be dynamically fertched from redis
+            userhash = "hjs&99"
+
+            db_helper_pgsql.create_user(username, password , userhash)
+
+            return jsonify({"status": "success", "message": "User registered"}) , 201
+        
+        else:
+
+            return jsonify({"status": "error", "message": "Passwords do not match"}), 400
+
+
+
+@app.route("/pgsql/update", methods=["PUT"])
+def update_password():
+    """
+    Updates the user's password verify the user details and check the new credentails as well
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+
+    username = data["username"]
+    old_password = data["old_password"]
+    new_password = data["new_password"]
+    confirm_password = data["confirm_password"]
+
+
+
+    # Validate required fields
+    if not username or not old_password or not new_password:
+        return jsonify({"status": "error", "message": "All fields are required"}), 400
+
+    # Verify if the user exists
+    if not db_helper_pgsql.check_user_exists(username):
+        return jsonify({"status": "error", "message": "User not found"}), 404
+    
+    #verify the new password
+    if new_password != confirm_password :
+        return jsonify({"status": "error", "message": "New Password not match"}), 400
+
+    #get the stored password
+    hashed_stored_password = db_helper_pgsql.get_user_password(username)
+
+    if not db_helper_pgsql.verify_password(old_password, hashed_stored_password) :
+        
+        return jsonify({"status": "error", "message": "Incorrect old password"}), 401
+    
+    #update the password
+    db_helper_pgsql.update_user_password(username , new_password)
+
+    return jsonify({"status": "success", "message": "Password updated successfully"}), 200
+
+ 
+
+        
+    
+
+    
+
+
 
 
 
