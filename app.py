@@ -6,7 +6,7 @@ import mongo_helper_kit
 from bson import json_util
 import pgsql_helper_kit
 import jwt
-
+import hmac
 
 #constansts the database and the collection name will change in the actual implemntations 
 #mongo database infomation
@@ -148,6 +148,12 @@ def generate_token(username):
     return jwt.encode(payload, secret_key, algorithm="HS256")
 
 
+def compare_tokens(token1, token2):
+    if hmac.compare_digest(token1, token2):
+        return True
+    return False
+
+
 
 @app.route("/pgsql/login", methods=["POST"])
 def get_login_data():
@@ -242,8 +248,6 @@ def update_password():
     new_password = data["new_password"]
     confirm_password = data["confirm_password"]
 
-
-
     # Validate required fields
     if not username or not old_password or not new_password:
         return jsonify({"status": "error", "message": "All fields are required"}), 400
@@ -269,8 +273,41 @@ def update_password():
     return jsonify({"status": "success", "message": "Password updated successfully"}), 200
 
  
+@app.route("/pgsql/recover", methods=["PUT"])
+def recover_password():
+    """
+    Updates the user's password verify the user details and check the new credentails as well
+    """
+    data = request.get_json()
 
-        
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+
+    username = data["username"]
+    token = data["token"]
+    new_password = data["new_password"]
+    confirm_password = data["confirm_password"]
+
+    # Verify if the user exists
+    if not db_helper_pgsql.check_user_exists(username):
+        return jsonify({"status": "error", "message": "User not found"}), 404
+    
+    #verify the new password
+    if new_password != confirm_password :
+        return jsonify({"status": "error", "message": "New Password not match"}), 400
+
+    #verify if the token matches 
+    stored_token = db_helper_pgsql.get_user_hash(username)
+    
+    if not compare_tokens(stored_token , token) :
+
+        return jsonify({"status": "error", "message": "Invalid Token"}), 400
+
+    #update the password
+    db_helper_pgsql.update_user_password(username , new_password)
+
+    return jsonify({"status": "success", "message": "Password updated successfully"}), 200
+
     
 
     
