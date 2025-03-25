@@ -25,6 +25,12 @@ PGSQL_HOST_NAME = "localhost"
 PGSQL_PASSWORD = "mysecretpassword"
 
 
+#redis database information
+REDIS_HOST_NAME = "localhost"
+REDIS_HASH_NAME = "test_hash"
+REDIS_SET_NAME = "test_set"
+
+
 
 
 #make the helper instance
@@ -38,7 +44,7 @@ db_helper_pgsql = pgsql_helper_kit.Db_Helper(pgsql_session, pgsql_engine)
 db_helper_mongo = mongo_helper_kit.Helper_fun(MONGO_HOST_NAME)
 
 #make the redis instance 
-db_helper_redis = redis_helper_kit.Helper_fun(hash_name="test_hash", set_name="test_set", host_name="localhost")
+db_helper_redis = redis_helper_kit.Helper_fun(hash_name= REDIS_HOST_NAME, set_name= REDIS_SET_NAME , host_name= REDIS_HOST_NAME)
 
 
 
@@ -223,13 +229,15 @@ def sign_up():
         if password == confirm_password :
 
             #added the redis  hash suport
-            hash_utils.generate_unique_hash("test_hash","test_set","localhost",5,10,100)
+            hash_utils.generate_unique_hash(REDIS_HOST_NAME,REDIS_SET_NAME ,REDIS_HOST_NAME ,5,10,100)
 
             userhash = db_helper_redis.pop_set_val()
+            
+            #print(userhash)
 
             db_helper_pgsql.create_user(username, password , userhash)
 
-            return jsonify({"status": "success", "message": "User registered"}) , 201
+            return jsonify({"status": "success", "user_token" : userhash, "message": "User registered"}) , 201
         
         else:
 

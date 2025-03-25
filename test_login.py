@@ -4,23 +4,23 @@ The file to test the login mechanism of the webiste
 
 import requests
 
-login_url = "http://localhost:5000/pgsql/login"
+login_url = "http://127.0.0.1:5000/pgsql/login"
 
-signup_url = "http://localhost:5000/pgsql/signup"
+signup_url = "http://127.0.0.1:5000/pgsql/signup"
 
-update_url = "http://localhost:5000/pgsql/update"
+update_url = "http://127.0.0.1:5000/pgsql/update"
 
-recover_url = "http://localhost:5000/pgsql/recover"
+recover_url = "http://127.0.0.1:5000/pgsql/recover"
 
-delete_url = "http://localhost:5000/pgsql/delete"
+delete_url = "http://127.0.0.1:5000/pgsql/delete"
 
 
 
-data_login = {"username": "abhi2" ,"password" : "1234"}
-data_signup = {"username": "abhi4" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }
+data_login = {"username": "abhi7" ,"password" : "1235"}
+data_signup = {"username": "abhi9" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 data_update = {"username": "abhi2" ,"old_password" : "Qwerty@1235" , "new_password": "1234" , "confirm_password" : "1234"}
-data_recover = {"username": "abhi4" ,"token" : "hjs&99" , "new_password": "1235" , "confirm_password" : "1235"}
-data_delete =  {"username": "abhi4" ,"token" : "hjs&99" , "password": "1235" }
+data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
+data_delete =  {"username": "abhi4" ,"token" : "44&99" , "password": "1235" }
 
 
 
@@ -47,8 +47,10 @@ print(response_signup.json())
 print(response_update.status_code)
 print(response_update.json())
 
+print("recover the data")
 print(response_recover.status_code)
 print(response_recover.json())
+print("-------------------")
 
 
 print(response_delete.status_code)
