@@ -1,7 +1,7 @@
 #imports
 import json
-from datetime import timedelta, datetime
-from flask import Flask, Response , render_template, request, jsonify, redirect, make_response , url_for, send_from_directory
+import datetime
+from flask import current_app, Flask, Response , render_template, request, jsonify, redirect, make_response , url_for, send_from_directory
 import mongo_helper_kit
 from bson import json_util
 import pgsql_helper_kit
@@ -142,9 +142,10 @@ def getSearchData(keyword):
 def generate_token(username):
     payload = {
         "username": username,
-        "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # Token expires in 1 hour
+        "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1)  # Corrected utcnow()
     }
-    return jwt.encode(payload, app.config['SECRET_KEY'], algorithm="HS256")
+    secret_key = current_app.config['SECRET_KEY']  # Using current_app for Flask apps
+    return jwt.encode(payload, secret_key, algorithm="HS256")
 
 
 

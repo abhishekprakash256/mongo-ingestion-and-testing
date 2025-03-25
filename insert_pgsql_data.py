@@ -27,6 +27,8 @@ print(db_helper.get_user_hash(username='abhi'))
 
 print(db_helper.check_user_exists(username='abhi'))
 
+print(db_helper.update_user_password('abhi2', 'Qwerty@1235'))
+
 print(db_helper.get_all_users())
 
 
