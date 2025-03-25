@@ -10,12 +10,12 @@ engine, session = create_db_session(
 db_helper = Db_Helper(session, engine)
 
 # Create a new user
-db_helper.create_user(username='test_user', password='secure_pass', userhash='user_hash')
+db_helper.create_user(username='abhi', password='Qwerty@1234', userhash='JHlks#5')
 
 # Fetch user details
-print(db_helper.get_user_password(username='test_user'))
-print(db_helper.get_user_hash(username='test_user'))
-print(db_helper.check_user_exists(username='test_user'))
+print(db_helper.get_user_password(username='abhi'))
+print(db_helper.get_user_hash(username='abhi'))
+print(db_helper.check_user_exists(username='abhi'))
 
 
 print(db_helper.get_all_users())
