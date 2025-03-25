@@ -162,8 +162,8 @@ def get_login_data():
     """
     data = request.get_json()
     
-    username = data["username"]
-    password = data["password"]
+    username = data.get("username")
+    password = data.get("password")
 
     if not username or not password:
         return jsonify({"status": "error", "message": "Missing username or password."}), 400
@@ -207,9 +207,9 @@ def sign_up():
     if not data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
     
-    username = data["username"]
-    password = data["password"]
-    confirm_password = data["confirm_password"]
+    username = data.get("username")
+    password = data.get("password")
+    confirm_password = data.get("confirm_password")
 
     #check if the username exists
     if db_helper_pgsql.check_user_exists(username):
@@ -243,10 +243,10 @@ def update_password():
     if not data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
 
-    username = data["username"]
-    old_password = data["old_password"]
-    new_password = data["new_password"]
-    confirm_password = data["confirm_password"]
+    username = data.get("username")
+    old_password = data.get("old_password")
+    new_password = data.get("new_password")
+    confirm_password = data.get("confirm_password")
 
     # Validate required fields
     if not username or not old_password or not new_password:
@@ -283,10 +283,10 @@ def recover_password():
     if not data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
 
-    username = data["username"]
-    token = data["token"]
-    new_password = data["new_password"]
-    confirm_password = data["confirm_password"]
+    username = data.get("username")
+    token = data.get("token")
+    new_password = data.get("new_password")
+    confirm_password = data.get("confirm_password")
 
     # Verify if the user exists
     if not db_helper_pgsql.check_user_exists(username):
@@ -319,9 +319,9 @@ def delete_user():
     if not data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
 
-    username = data["username"]
-    password = data["password"]
-    token = data["token"]
+    username = data.get("username")
+    password = data.get("password")
+    token = data.get("token")
 
     # Verify if the user exists
     if not db_helper_pgsql.check_user_exists(username):
@@ -342,7 +342,7 @@ def delete_user():
 
     #delete the user
     db_helper_pgsql.delete_user(username)
-    
+
     return jsonify({"status": "success", "message": "User account deleted successfully"}), 200
 
     
