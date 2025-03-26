@@ -359,11 +359,151 @@ def delete_user():
 
     
 
+#---------------------------------the new method for the database access-------------------------
+
+@app.route("/pgsql/create_user", methods=["POST"])
+def create_user():
+    """
+    The function to create the user in data base
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    username = data.get("username")
+    password = data.get("password")
+
+    hash_utils.generate_unique_hash(REDIS_HOST_NAME,REDIS_SET_NAME ,REDIS_HOST_NAME ,5,10,100)
+
+    user_token = db_helper_redis.pop_set_val()
+
+    if db_helper_pgsql.create_user(username, password , user_token): 
+
+        return jsonify({"status": "success", "user_token" : user_token, "message": "User registered"}) , 201
+
+    return jsonify({"status": "error", "message": "User not regisred"}), 400
 
 
+@app.route("/pgsql/check_user", methods=["POST"])
+def check_user_exists():
+    """
+    Check if the user exists in the database 
+    """
+    data = request.get_json()
+    
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    #chek the user
+    username = data.get("username")
+
+    if db_helper_pgsql.check_user_exists(username=username) :
+        
+        return jsonify({"message": "User exists"}), 200
+    
+    return jsonify({"message": "User does not exist"}), 404
+
+@app.route("/pgsql/verify_password", methods=["POST"])
+def verify_password():
+    """
+    To check if the user has given correct password
+    takes the hashed password 
+    takse the user password passed
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+
+    hashed_password = data.get("hashed_password")
+    passed_password = data.get("passed_password")
+
+    if db_helper_pgsql.verify_password(passed_password, hashed_password) :
+
+        return jsonify({"status": "success", "message": "Password Match"}), 200
+    
+    return jsonify({"status": "error", "message": "Invalid password"}), 400
 
 
+@app.route("/pgsql/get_user_password", methods=["POST"])
+def get_user_password():
+    """
+    The function to get the user password
+    """
 
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    #chek the user
+    username = data.get("username") 
+    
+    hashed_stored_password = db_helper_pgsql.get_user_password(username)
+
+    return jsonify({"status": "success", "message": hashed_stored_password}), 200
+
+
+@app.route("/pgsql/update_user_password", methods=["PUT"])
+def update_user_password():
+    """
+    The function to update the user password
+    """
+
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    username = data.get("username")
+    new_password = data.get("new_password")
+
+    if db_helper_pgsql.update_user_password(username , new_password) :
+
+        return jsonify({"status": "success", "message": "Password updated successfully"}), 200
+    
+    return jsonify({"status": "error", "message": "Password update failed"}), 400
+
+
+@app.route("/pgsql/get_user_token", methods=["POST"])
+def get_user_token():
+    """
+    The function to get the user token
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+    
+    username = data.get("username")
+
+    user_token = db_helper_pgsql.get_user_hash(username)
+
+    if user_token :
+
+        return jsonify({"status": "success", "user_token": user_token}), 200
+    
+    return jsonify({"status": "error", "message": "no token found"}), 404
+
+
+@app.route("/pgsql/delete_user", methods=["DELETE"])
+def delete_user():
+    """
+    The function to delete the user
+    """
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
+
+    username = data.get("username") 
+
+    if db_helper_pgsql.delete_user(username) :
+
+        return jsonify({"status": "success", "message": "User account deleted successfully"}), 200 
+
+    return  jsonify({"status": "error", "message": "User not deleted"}), 400
 
 
 
