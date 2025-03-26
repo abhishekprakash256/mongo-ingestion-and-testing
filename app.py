@@ -445,7 +445,11 @@ def get_user_password():
     
     hashed_stored_password = db_helper_pgsql.get_user_password(username)
 
-    return jsonify({"status": "success", "message": hashed_stored_password}), 200
+    if hashed_stored_password :
+
+        return jsonify({"status": "success", "hashed_password": hashed_stored_password}), 200
+    
+    return jsonify({"status": "error", "message": "Password not found"}), 404 
 
 
 
