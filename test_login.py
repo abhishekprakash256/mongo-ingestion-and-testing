@@ -17,7 +17,7 @@ delete_url = "http://127.0.0.1:5000/pgsql/delete"
 
 
 data_login = {"username": "abhi7" ,"password" : "1235"}
-data_signup = {"username": "abhi9" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
+data_signup = {"username": "abhi11" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 data_update = {"username": "abhi2" ,"old_password" : "Qwerty@1235" , "new_password": "1234" , "confirm_password" : "1234"}
 data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
 data_delete =  {"username": "abhi4" ,"token" : "44&99" , "password": "1235" }
@@ -29,7 +29,7 @@ response_login = requests.post(login_url, json=data_login)
 response_signup = requests.post(signup_url ,json = data_signup)
 response_update = requests.put(update_url , json = data_update)
 response_recover = requests.put(recover_url , json = data_recover )
-response_delete = requests.delete(delete_url , json = data_delete)
+#response_delete = requests.delete(delete_url , json = data_delete)
 
 
 
@@ -53,5 +53,5 @@ print(response_recover.json())
 print("-------------------")
 
 
-print(response_delete.status_code)
-print(response_delete.json())
+#print(response_delete.status_code)
+#print(response_delete.json())
