@@ -321,8 +321,8 @@ def recover_password():
     return jsonify({"status": "success", "message": "Password updated successfully"}), 200
 
 
-@app.route("/pgsql/delete", methods=["DELETE"])
-def delete_user():
+@app.route("/pgsql/delete-d", methods=["DELETE"])
+def delete_user_d():
     """
     Deletes the user's account after verifying the token and password.
     """
@@ -404,6 +404,8 @@ def check_user_exists():
     
     return jsonify({"message": "User does not exist"}), 404
 
+
+
 @app.route("/pgsql/verify_password", methods=["POST"])
 def verify_password():
     """
@@ -426,6 +428,7 @@ def verify_password():
     return jsonify({"status": "error", "message": "Invalid password"}), 400
 
 
+
 @app.route("/pgsql/get_user_password", methods=["POST"])
 def get_user_password():
     """
@@ -443,6 +446,7 @@ def get_user_password():
     hashed_stored_password = db_helper_pgsql.get_user_password(username)
 
     return jsonify({"status": "success", "message": hashed_stored_password}), 200
+
 
 
 @app.route("/pgsql/update_user_password", methods=["PUT"])
@@ -466,6 +470,7 @@ def update_user_password():
     return jsonify({"status": "error", "message": "Password update failed"}), 400
 
 
+
 @app.route("/pgsql/get_user_token", methods=["POST"])
 def get_user_token():
     """
@@ -485,6 +490,7 @@ def get_user_token():
         return jsonify({"status": "success", "user_token": user_token}), 200
     
     return jsonify({"status": "error", "message": "no token found"}), 404
+
 
 
 @app.route("/pgsql/delete_user", methods=["DELETE"])
