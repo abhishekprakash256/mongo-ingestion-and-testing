@@ -4,8 +4,10 @@ The file to test the login mechanism of the webiste
 
 import requests
 
-login_url = "http://127.0.0.1:5000/pgsql/login"
+login_url = "http://127.0.0.1:5001/auth/login"
 
+
+"""
 signup_url = "http://127.0.0.1:5000/pgsql/signup"
 
 update_url = "http://127.0.0.1:5000/pgsql/update"
@@ -22,16 +24,19 @@ check_user_url = "http://127.0.0.1:5000/pgsql/check_user"
 
 verify_password_url = "http://127.0.0.1:5000/pgsql/verify_password"
 
-get_user_password_url = "http://127.0.0.1:5000/pgsql/get_user_password"
+get_user_password_url = "http://127.0.0.1:5001/pgsql/get_user_password"
 
 update_user_password_url = "http://127.0.0.1:5000/pgsql/update_user_password"
 
 get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
 
 delete_user_url = "http://127.0.0.1:5000/pgsql/delete_user"
+"""
+
+data_login = {"username": "abhi11" ,"password" : "Qwerty@8503001887"}
 
 
-data_login = {"username": "abhi7" ,"password" : "1235"}
+"""
 data_signup = {"username": "abhi11" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 data_update = {"username": "abhi2" ,"old_password" : "Qwerty@1235" , "new_password": "1234" , "confirm_password" : "1234"}
 data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
@@ -50,13 +55,16 @@ data_user_token = {"username": "abhi11"}
 delete_user_data = {"username": "abhi7"}
 
 
-
+"""
 
 
 
 
 
 response_login = requests.post(login_url, json=data_login)
+
+
+"""
 response_signup = requests.post(signup_url ,json = data_signup)
 response_update = requests.put(update_url , json = data_update)
 response_recover = requests.put(recover_url , json = data_recover )
@@ -70,13 +78,16 @@ response_update_user_password = requests.put( update_user_password_url , json = 
 response_get_user_token = requests.post( get_user_token_url , json = data_user_token)
 response_delete_user = requests.delete( delete_user_url , json = delete_user_data)
 
-
+"""
 
 
 
 print(response_login.status_code)
 print(response_login.json()) 
 
+
+
+"""
 
 print(response_signup.status_code)
 print(response_signup.json())
@@ -124,3 +135,6 @@ print(response_verify_password.json())
 
 #print(response_delete.status_code)
 #print(response_delete.json())
+
+
+"""
