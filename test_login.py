@@ -63,12 +63,30 @@ delete_user_data = {"username": "abhi7"}
 """
 
 
+"""
 
-
-
-response_login = requests.post(login_url, json=data_login)
 response_signup = requests.post(signup_url ,json = data_signup)
+
+print(response_signup.status_code)
+print(response_signup.json())
+
+"""
+
+"""
+response_login = requests.post(login_url, json=data_login)
+
+print(response_login.status_code)
+print(response_login.json()) 
+"""
+
+
+
 response_update = requests.put(update_url , json = data_update)
+
+print(response_update.status_code)
+print(response_update.json())
+
+
 
 """
 response_recover = requests.put(recover_url , json = data_recover )
@@ -86,19 +104,12 @@ response_delete_user = requests.delete( delete_user_url , json = delete_user_dat
 
 
 
-print(response_login.status_code)
-print(response_login.json()) 
 
 
 
 
 
-print(response_signup.status_code)
-print(response_signup.json())
 
-
-print(response_update.status_code)
-print(response_update.json())
 
 """
 print(response_recover.status_code)
