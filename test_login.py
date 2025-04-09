@@ -62,7 +62,7 @@ delete_user_data = {"username": "abhi7"}
 """
 
 
-
+"""
 
 response_signup = requests.post(signup_url ,json = data_signup)
 
@@ -78,7 +78,7 @@ print(response_login.status_code)
 print(response_login.json()) 
 
 
-
+"""
 
 response_update = requests.patch(update_url , json = data_update)
 
