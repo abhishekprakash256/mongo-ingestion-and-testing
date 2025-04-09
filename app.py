@@ -392,17 +392,18 @@ def check_user_exists():
     """
     data = request.get_json()
     
-    if not data:
+    if not data or "username" not in data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
     
-    #chek the user
     username = data.get("username")
+    exists = db_helper_pgsql.check_user_exists(username=username)
 
-    if db_helper_pgsql.check_user_exists(username=username) :
-        
-        return jsonify({"message": "User exists"}), 200
-    
-    return jsonify({"message": "User does not exist"}), 404
+    return jsonify({
+        "status": "success",
+        "userExists": exists,
+        "message": "User exists" if exists else "User does not exist"
+    }), 200
+
 
 
 
