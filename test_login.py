@@ -36,7 +36,7 @@ get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
 delete_user_url = "http://127.0.0.1:5000/pgsql/delete_user"
 """
 
-data_login = {"username": "abhi11" ,"password" : "Qwerty@8503001887"}
+data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
 data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 data_update = {"username": "abhi2" ,"old_password" : "Qwerty@1235" , "new_password": "1234" , "confirm_password" : "1234"}
 
@@ -71,13 +71,13 @@ print(response_signup.json())
 
 
 
-"""
+
 response_login = requests.post(login_url, json=data_login)
 
 print(response_login.status_code)
 print(response_login.json()) 
 
-"""
+
 
 """
 response_update = requests.put(update_url , json = data_update)
