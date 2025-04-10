@@ -401,7 +401,8 @@ def check_user_exists():
     return jsonify({
         "status": "success",
         "userExists": exists,
-        "message": "User exists" if exists else "User does not exist"
+        "message": "User exists" if exists else "User does not exist",
+        "username": username,
     }), 200
 
 
@@ -454,11 +455,13 @@ def get_user_password():
 
 
 
-@app.route("/pgsql/update_user_password", methods=["PUT"])
+@app.route("/pgsql/update_user_password", methods=["POST"])
 def update_user_password():
     """
     The function to update the user password
     """
+
+    print("update user password")
 
     data = request.get_json()
 
@@ -467,6 +470,8 @@ def update_user_password():
     
     username = data.get("username")
     new_password = data.get("new_password")
+
+    print(username , new_password)
 
     if db_helper_pgsql.update_user_password(username , new_password) :
 
