@@ -65,8 +65,13 @@ data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm
 
 response_signup = requests.post(signup_url ,json = data_signup)
 
+
+print("signup json")
 print(response_signup.status_code)
 print(response_signup.json())
+
+print("end") 
+
 
 
 data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
@@ -74,7 +79,11 @@ data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
 response_login = requests.post(login_url, json=data_login)
 
 print(response_login.status_code)
+print("login json")
 print(response_login.json())
+print("end")
+
+
 access_token = response_login.json().get("access_token")
 print("access_token : " , access_token)
 
@@ -83,9 +92,10 @@ data_update = {"username": "abhi27" ,"oldPassword" : "Qwerty@8503001887" , "newP
 
 response_update = requests.patch(update_url , json = data_update)
 
+print("update json")
 print(response_update.status_code)
 print(response_update.json())
-
+print("end")
 
 
 data_login2 = {"username": "abhi27" ,"password" : "1234"}
@@ -95,17 +105,36 @@ response_login2 = requests.post(login_url, json=data_login2)
 print(response_login2.status_code)
 print(response_login2.json())
 access_token2 = response_login2.json().get("access_token")
-print("access_token : " , access_token2)
 
 
-data_delete =  {"username": "abhi27" ,"token" : access_token2 , "password": "1234" }
 
+
+#make the post request to get the user hash 
+
+get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
+
+user_hash_data = {"username": "abhi27"}
+response_get_user_token = requests.post( get_user_token_url , json = user_hash_data)
+print("get user token json")
+print(response_get_user_token.status_code)
+print(response_get_user_token.json())
+
+user_hash = response_get_user_token.json().get("user_hash")
+print("user_hash : " , user_hash)
+
+print("end")
+
+
+
+
+data_delete =  {"username": "abhi27" ,"userHash" : user_hash , "password": "1234" }
 
 response_delete = requests.post(delete_url ,json = data_delete)
 
+print("delete json")
 print(response_delete.status_code)
 print(response_delete.json())
-
+print("end")
 
 
 
