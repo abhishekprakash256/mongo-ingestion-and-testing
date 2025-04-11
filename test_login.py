@@ -38,11 +38,6 @@ delete_user_url = "http://127.0.0.1:5000/pgsql/delete_user"
 
 """
 
-data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
-
-data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
-
-
 
 data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
 
@@ -66,6 +61,7 @@ delete_user_data = {"username": "abhi7"}
 
 
 
+data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 
 response_signup = requests.post(signup_url ,json = data_signup)
 
@@ -73,26 +69,26 @@ print(response_signup.status_code)
 print(response_signup.json())
 
 
-
+data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
 
 response_login = requests.post(login_url, json=data_login)
 
 print(response_login.status_code)
 print(response_login.json())
 access_token = response_login.json().get("access_token")
-print("access_token : " , access_token) 
-
+print("access_token : " , access_token)
 
 
 data_update = {"username": "abhi27" ,"oldPassword" : "Qwerty@8503001887" , "newPassword": "1234" , "confirm_password" : "1234" , "token" : access_token }
-
-
-data_delete =  {"username": "abhi27" ,"token" : access_token , "password": "1234" }
 
 response_update = requests.patch(update_url , json = data_update)
 
 print(response_update.status_code)
 print(response_update.json())
+
+
+
+data_delete =  {"username": "abhi27" ,"token" : access_token , "password": "1234" }
 
 
 response_delete = requests.post(delete_url ,json = data_delete)
