@@ -469,11 +469,11 @@ def update_user_password():
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
     
     username = data.get("username")
-    new_password = data.get("new_password")
+    newPassword = data.get("newPassword")
 
-    print(username , new_password)
+    print(username , "the new password",newPassword)
 
-    if db_helper_pgsql.update_user_password(username , new_password) :
+    if db_helper_pgsql.update_user_password(username , newPassword) :
 
         return jsonify({"status": "success", "message": "Password updated successfully"}), 200
     
