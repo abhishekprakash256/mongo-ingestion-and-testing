@@ -14,12 +14,13 @@ update_url = "http://127.0.0.1:5001/auth/update-password"
 
 
 
+
+#recover_url = "http://127.0.0.1:5000/pgsql/recover"
+
+delete_url = "http://127.0.0.1:5001/auth/delete"
+
+
 """
-recover_url = "http://127.0.0.1:5000/pgsql/recover"
-
-delete_url = "http://127.0.0.1:5000/pgsql/delete"
-
-
 
 create_user_url = "http://127.0.0.1:5000/pgsql/create_user"
 
@@ -34,6 +35,7 @@ update_user_password_url = "http://127.0.0.1:5000/pgsql/update_user_password"
 get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
 
 delete_user_url = "http://127.0.0.1:5000/pgsql/delete_user"
+
 """
 
 data_login = {"username": "abhi27" ,"password" : "1234"}
@@ -43,11 +45,11 @@ data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm
 
 data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
 
+
+
+
+
 """
-data_delete =  {"username": "abhi4" ,"token" : "44&99" , "password": "1235" }
-
-
-
 
 
 data_create_user = {"username": "abhi12" ,"password" : "1235"}
@@ -84,10 +86,20 @@ print("access_token : " , access_token)
 data_update = {"username": "abhi27" ,"oldPassword" : "1234" , "newPassword": "1234" , "confirm_password" : "1234" , "token" : access_token }
 
 
+data_delete =  {"username": "abhi27" ,"token" : access_token , "password": "1234" }
+
 response_update = requests.patch(update_url , json = data_update)
 
 print(response_update.status_code)
 print(response_update.json())
+
+
+response_delete = requests.post(delete_url ,json = data_delete)
+
+print(response_delete.status_code)
+print(response_delete.json())
+
+
 
 
 

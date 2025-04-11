@@ -503,12 +503,14 @@ def get_user_token():
 
 
 
-@app.route("/pgsql/delete_user", methods=["DELETE"])
+@app.route("/pgsql/delete_user", methods=["POST"])
 def delete_user():
     """
     The function to delete the user
     """
     data = request.get_json()
+
+    print("delete user in flask" )
 
     if not data:
         return jsonify({"status": "error", "message": "Invalid JSON data"}), 400
