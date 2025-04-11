@@ -88,7 +88,17 @@ print(response_update.json())
 
 
 
-data_delete =  {"username": "abhi27" ,"token" : access_token , "password": "1234" }
+data_login2 = {"username": "abhi27" ,"password" : "1234"}
+
+response_login2 = requests.post(login_url, json=data_login2)
+
+print(response_login2.status_code)
+print(response_login2.json())
+access_token2 = response_login2.json().get("access_token")
+print("access_token : " , access_token2)
+
+
+data_delete =  {"username": "abhi27" ,"token" : access_token2 , "password": "1234" }
 
 
 response_delete = requests.post(delete_url ,json = data_delete)
