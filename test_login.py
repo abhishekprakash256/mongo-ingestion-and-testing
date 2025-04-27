@@ -138,7 +138,7 @@ print("------------------getting hash end-------------------")
 
 print("--------------------------delete json---------------------")
 
-data_delete =  {"username": "abhi27" ,"userhash" : user_hash , "password": "1234" }
+data_delete =  {"username": "abhi27" ,"token" : user_hash , "password": "1234" }
 
 response_delete = requests.post(delete_url ,json = data_delete)
 
