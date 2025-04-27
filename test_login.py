@@ -11,8 +11,7 @@ login_url = "http://127.0.0.1:5001/auth/login"
 
 update_url = "http://127.0.0.1:5001/auth/update-password"
 
-
-#recover_url = "http://127.0.0.1:5000/pgsql/recover"
+recover_url = "http://127.0.0.1:5001/auth/recover"
 
 delete_url = "http://127.0.0.1:5001/auth/delete"
 
@@ -35,8 +34,6 @@ delete_user_url = "http://127.0.0.1:5000/pgsql/delete_user"
 
 """
 
-
-data_recover = {"username": "abhi" ,"token" : "JsflShSDl2" , "new_password": "1235" , "confirm_password" : "1235"}
 
 
 
@@ -142,7 +139,25 @@ print(response_get_user_token.json())
 user_hash = response_get_user_token.json().get("user_token")
 print("user token/hash : " , user_hash)  #getting the user hash as none 
 
-print("------------------getting hash end-------------------")
+print("------------------getting token end-------------------")
+
+
+
+
+
+print("-----------------recover password----------------------")
+
+data_recover = {"username": "abhi27" ,"token" : user_hash , "newPassword": "1235" , "confirmPassword" : "1235"}
+
+
+response_recover = requests.post(recover_url , json = data_recover )
+
+
+print(response_recover.status_code)
+print(response_recover.json())
+
+print("-----------------recover password end----------------------")
+
 
 
 
@@ -151,7 +166,7 @@ print("--------------------------delete json---------------------")
 
 #test the user token 
 
-data_delete =  {"username": "abhi27" ,"token" : user_hash , "password": "1234" }
+data_delete =  {"username": "abhi27" ,"token" : user_hash , "password": "1235" }
 
 response_delete = requests.post(delete_url ,json = data_delete)
 
@@ -162,19 +177,7 @@ print(response_delete.json())
 print("------------------getting end---------------------")
 
 
-"""
-response_recover = requests.put(recover_url , json = data_recover )
-#response_delete = requests.delete(delete_url , json = data_delete)
 
-response_create_user = requests.post(create_user_url, json= data_create_user)
-response_check_user = requests.post(check_user_url, json= data_check_user)
-response_verify_password = requests.post( verify_password_url , json = data_verify_password)  #error 
-response_user_password = requests.post( get_user_password_url , json = user_password)
-response_update_user_password = requests.put( update_user_password_url , json = update_data)
-response_get_user_token = requests.post( get_user_token_url , json = data_user_token)
-response_delete_user = requests.delete( delete_user_url , json = delete_user_data)
-
-"""
 
 
 
