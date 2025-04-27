@@ -107,41 +107,46 @@ data_login2 = {"username": "abhi27" ,"password" : "1234"}
 
 response_login2 = requests.post(login_url, json=data_login2)
 
+
+print("-----------------login start----------------------")
 print(response_login2.status_code)
 print(response_login2.json())
 access_token2 = response_login2.json().get("access_token")
 
-
+print("-----------login end------------------")
 
 
 #make the post request to get the user hash 
 
 get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
 
+
+print("------------get user token json------")
+
 user_hash_data = {"username": "abhi27"}
 response_get_user_token = requests.post( get_user_token_url , json = user_hash_data)
-print("get user token json")
 print(response_get_user_token.status_code)
 print(response_get_user_token.json())
 
-user_hash = response_get_user_token.json().get("user_hash")
+user_hash = response_get_user_token.json().get("user_token")
 print("user_hash : " , user_hash)  #getting the user hash as none 
 
-print("end")
+print("------------------getting hash end-------------------")
 
 
-"""
 
 data_delete =  {"username": "abhi27" ,"userHash" : user_hash , "password": "1234" }
 
+print("--------------------------delete json---------------------")
+
 response_delete = requests.post(delete_url ,json = data_delete)
 
-print("delete json")
+
 print(response_delete.status_code)
 print(response_delete.json())
-print("end")
 
-"""
+
+print("------------------getting  end-------------------")
 
 
 """
