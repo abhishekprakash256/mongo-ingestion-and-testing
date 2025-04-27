@@ -56,8 +56,7 @@ delete_user_data = {"username": "abhi7"}
 
 """
 
-
-"""
+print("-----------------sign up----------------------")
 
 data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 
@@ -68,12 +67,14 @@ print("signup json")
 print(response_signup.status_code)
 print(response_signup.json())
 
-print("end") 
 
-"""
+print("-----------login end------------------")
 
 
-"""
+
+
+
+print("-----------------login ----------------------")
 data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
 
 response_login = requests.post(login_url, json=data_login)
@@ -87,19 +88,27 @@ print("end")
 access_token = response_login.json().get("access_token")
 print("access_token : " , access_token)
 
-"""
 
-"""
+
+print("-------------- login end  -----------------")
+
+
+
+
+
+print("-----------------update user  ----------------------")
 data_update = {"username": "abhi27" ,"oldPassword" : "Qwerty@8503001887" , "newPassword": "1234" , "confirm_password" : "1234" , "token" : access_token }
 
 response_update = requests.patch(update_url , json = data_update)
 
-print("update json")
+
 print(response_update.status_code)
 print(response_update.json())
-print("end")
 
-"""
+
+
+print("-------------- update user -----------------")
+
 
 
 
@@ -109,6 +118,7 @@ response_login2 = requests.post(login_url, json=data_login2)
 
 
 print("-----------------login start----------------------")
+
 print(response_login2.status_code)
 print(response_login2.json())
 access_token2 = response_login2.json().get("access_token")
@@ -118,6 +128,7 @@ print("-----------login end------------------")
 
 #make the post request to get the user hash 
 
+#from flask url
 get_user_token_url = "http://127.0.0.1:5000/pgsql/get_user_token"
 
 
