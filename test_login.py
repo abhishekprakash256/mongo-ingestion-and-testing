@@ -135,7 +135,7 @@ print("------------------getting hash end-------------------")
 
 
 
-data_delete =  {"username": "abhi27" ,"userHash" : user_hash , "password": "1234" }
+data_delete =  {"Username": "abhi27" ,"userHash" : user_hash , "password": "1234" }
 
 print("--------------------------delete json---------------------")
 
