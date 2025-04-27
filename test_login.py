@@ -4,15 +4,12 @@ The file to test the login mechanis m of the webiste
 
 import requests
 
-login_url = "http://127.0.0.1:5001/auth/login"
-
 
 signup_url = "http://127.0.0.1:5001/auth/signup"
 
+login_url = "http://127.0.0.1:5001/auth/login"
 
 update_url = "http://127.0.0.1:5001/auth/update-password"
-
-
 
 
 #recover_url = "http://127.0.0.1:5000/pgsql/recover"
@@ -60,6 +57,7 @@ delete_user_data = {"username": "abhi7"}
 """
 
 
+"""
 
 data_signup = {"username": "abhi27" ,"password" : "Qwerty@8503001887" , "confirm_password": "Qwerty@8503001887" }  #JsflShSDl2  token for the user
 
@@ -72,8 +70,10 @@ print(response_signup.json())
 
 print("end") 
 
+"""
 
 
+"""
 data_login = {"username": "abhi27" ,"password" : "Qwerty@8503001887"}
 
 response_login = requests.post(login_url, json=data_login)
@@ -87,7 +87,9 @@ print("end")
 access_token = response_login.json().get("access_token")
 print("access_token : " , access_token)
 
+"""
 
+"""
 data_update = {"username": "abhi27" ,"oldPassword" : "Qwerty@8503001887" , "newPassword": "1234" , "confirm_password" : "1234" , "token" : access_token }
 
 response_update = requests.patch(update_url , json = data_update)
@@ -96,6 +98,9 @@ print("update json")
 print(response_update.status_code)
 print(response_update.json())
 print("end")
+
+"""
+
 
 
 data_login2 = {"username": "abhi27" ,"password" : "1234"}
@@ -120,12 +125,12 @@ print(response_get_user_token.status_code)
 print(response_get_user_token.json())
 
 user_hash = response_get_user_token.json().get("user_hash")
-print("user_hash : " , user_hash)
+print("user_hash : " , user_hash)  #getting the user hash as none 
 
 print("end")
 
 
-
+"""
 
 data_delete =  {"username": "abhi27" ,"userHash" : user_hash , "password": "1234" }
 
@@ -136,7 +141,7 @@ print(response_delete.status_code)
 print(response_delete.json())
 print("end")
 
-
+"""
 
 
 """
