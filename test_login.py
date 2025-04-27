@@ -140,7 +140,7 @@ print(response_get_user_token.status_code)
 print(response_get_user_token.json())
 
 user_hash = response_get_user_token.json().get("user_token")
-print("user_hash : " , user_hash)  #getting the user hash as none 
+print("user token/hash : " , user_hash)  #getting the user hash as none 
 
 print("------------------getting hash end-------------------")
 
@@ -148,6 +148,8 @@ print("------------------getting hash end-------------------")
 
 
 print("--------------------------delete json---------------------")
+
+#test the user token 
 
 data_delete =  {"username": "abhi27" ,"token" : user_hash , "password": "1234" }
 
