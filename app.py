@@ -113,7 +113,7 @@ def getExploreData():
     """
     The function to get the explore data of mixed sections
     get the max data of 15 cards
-    """
+    """ 
     #make the limit
     limit = request.args.get("limit", type=int)
     
