@@ -4,7 +4,7 @@ Data CRUD Operations Script
 This script handles data insertion, deletion, and retrieval for a MongoDB database.
 It uses the mongo_helper_kit and loads data from a JSON file.
 
-Author: Abhishek Prakash (meabhi.me)
+Author: Abhishek Prakash (meabhi.me)     
 """
 
 import json
