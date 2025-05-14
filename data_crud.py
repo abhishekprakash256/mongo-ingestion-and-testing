@@ -52,7 +52,7 @@ def perform_database_operations():
     db_helper = initialize_helper(MONGO_HOST_NAME)
 
     # Load data from JSON file
-    data = load_json_data(FILE_PATH)
+    # data = load_json_data(FILE_PATH)
 
     # --- Uncomment operations as needed ---
 
@@ -66,7 +66,7 @@ def perform_database_operations():
     # db_helper.delete_db(DB_NAME)
 
     # Show all data (prints to console)
-    db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+    # db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
     # Example: Get specific article data
     # result = db_helper.show_article_data(DB_NAME, COLLECTION_NAME, {'article_name': "test1"})
