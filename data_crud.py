@@ -52,7 +52,7 @@ def perform_database_operations():
     db_helper = initialize_helper(MONGO_HOST_NAME)
 
     # Load data from JSON file
-    data = load_json_data(FILE_PATH)
+    data = load_json_data(FILE_PATH)  
 
     # --- Uncomment operations as needed ---
 
