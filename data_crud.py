@@ -52,18 +52,18 @@ def perform_database_operations():
     db_helper = initialize_helper(MONGO_HOST_NAME)
 
     # Load data from JSON file
-    # data = load_json_data(FILE_PATH)
+    data = load_json_data(FILE_PATH)
 
     # --- Uncomment operations as needed ---
 
     # Create database and collection (if needed)
-    # db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
+    #db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
 
     # Insert data
     # db_helper.insert_data(DB_NAME, COLLECTION_NAME, data)
 
     # Delete entire database (USE WITH CAUTION!)
-    # db_helper.delete_db(DB_NAME)
+    db_helper.delete_db(DB_NAME)
 
     # Show all data (prints to console)
     # db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
