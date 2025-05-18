@@ -57,16 +57,16 @@ def perform_database_operations():
     # --- Uncomment operations as needed ---
 
     # Create database and collection (if needed)
-    #db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
+    db_helper.make_database_and_collection(DB_NAME, COLLECTION_NAME)
 
     # Insert data
-    # db_helper.insert_data(DB_NAME, COLLECTION_NAME, data)
+    db_helper.insert_data(DB_NAME, COLLECTION_NAME, data)
 
     # Delete entire database (USE WITH CAUTION!)
-    db_helper.delete_db(DB_NAME)
+    #db_helper.delete_db(DB_NAME)
 
     # Show all data (prints to console)
-    # db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
+    db_helper.show_all_data(DB_NAME, COLLECTION_NAME)
 
     # Example: Get specific article data
     # result = db_helper.show_article_data(DB_NAME, COLLECTION_NAME, {'article_name': "test1"})
