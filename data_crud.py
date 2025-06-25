@@ -62,6 +62,9 @@ def perform_database_operations():
     # Insert data
     db_helper.insert_data(DB_NAME, COLLECTION_NAME, data)
 
+    #delete the dummy data that is inserted in start 
+    db_helper.delete_data(DB_NAME,COLLECTION_NAME,{"dummy_data":True})
+
     # Delete entire database (USE WITH CAUTION!)
     #db_helper.delete_db(DB_NAME)
 
